@@ -1,6 +1,13 @@
 import { Header } from "./Header";
 import { CollapsibleSidebarItem } from "./CollapsibleSidebarItem";
-import { LayoutDashboard } from "lucide-react";
+import {
+  LayoutDashboard,
+  Plus,
+  BookMarked,
+  Archive,
+  Asterisk,
+  Route,
+} from "lucide-react";
 import { LinkItem } from "./LinkItem";
 
 const samplePersonalItems = [
@@ -608,15 +615,11 @@ const samplePersonalItems = [
 
 const Sidebar = () => {
   return (
-    <aside className="h-screen overflow-hidden border-r border-gray-800">
+    <aside className="h-screen bg-white dark:bg-black overflow-hidden border-r border-gray-200 dark:border-gray-800">
       <Header />
       <nav className="p-4">
         <ul className="flex flex-col gap-2">
-          <LinkItem
-            href="/new"
-            label="New Vision"
-            icon={<LayoutDashboard size={20} />}
-          />
+          <LinkItem href="/new" label="New Vision" icon={<Plus size={20} />} />
           <LinkItem
             href="/dashboard"
             label="Dashboard"
@@ -624,22 +627,24 @@ const Sidebar = () => {
           />
 
           <CollapsibleSidebarItem
-            label="Personas"
+            label="Paths"
             items={samplePersonalItems}
+            icon={<Route size={20} />}
           />
           <CollapsibleSidebarItem
             label="Future Visions"
             items={samplePersonalItems}
+            icon={<BookMarked size={20} />}
           />
-          <LinkItem
-            href="/archive"
+          <CollapsibleSidebarItem
             label="Archive"
-            icon={<LayoutDashboard size={20} />}
+            items={samplePersonalItems}
+            icon={<Archive size={20} />}
           />
           <LinkItem
             href="/reflections"
             label="Reflections"
-            icon={<LayoutDashboard size={20} />}
+            icon={<Asterisk size={20} />}
           />
         </ul>
       </nav>

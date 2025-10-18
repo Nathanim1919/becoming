@@ -1,48 +1,89 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Target } from "lucide-react";
 import { Persona } from "@/app/types/personas";
 import { LinkItem } from "./LinkItem";
-import { UserRound, Users } from "lucide-react";
 
 interface CollapsibleSidebarItemProps {
   label: string;
   items: Persona[];
+  icon: React.ReactNode;
 }
 
 export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
   label,
   items,
+  icon,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className="collapsible-sidebar-item">
-      <header className="flex justify-between items-center">
-        <button className="flex font-bold items-center justify-between gap-2">
-          <Users size={20} />
+    <div className="collapsible-sidebar-item select-none">
+      <header
+        onClick={toggle}
+        className="flex justify-between items-center cursor-pointer rounded-md transition-colors duration-200"
+      >
+        <div className="flex font-semibold items-center gap-2 text-zinc-700 dark:text-zinc-200">
+          {icon}
           {label}
-        </button>
-        {isOpen ? (
-          <ChevronUp className="w-4 h-4 cursor-pointer" onClick={toggle} />
-        ) : (
-          <ChevronDown className="w-4 h-4 cursor-pointer" onClick={toggle} />
-        )}
+        </div>
+        <motion.div
+          initial={false}
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <ChevronDown className="w-4 h-4 text-zinc-500" />
+        </motion.div>
       </header>
-      {isOpen && (
-        <ul className="ml-2 p-2 text-md flex flex-col gap-1 border-l border-gray-800">
-          {items.map((persona) => (
-            <LinkItem
-              label={persona.title}
-              href={`/in/personas/${persona.id}`}
-              icon={<UserRound size={20} />}
-            />
-          ))}
-        </ul>
-      )}
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.ul
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: {
+                opacity: 1,
+                height: "auto",
+                transition: {
+                  duration: 0.4,
+                  ease: [0.04, 0.62, 0.23, 0.98],
+                  staggerChildren: 0.05,
+                },
+              },
+              collapsed: {
+                opacity: 0,
+                height: 0,
+                transition: { duration: 0.3 },
+              },
+            }}
+            className="ml-5 mt-2 pl-2 flex flex-col gap-1 border-l border-zinc-300 dark:border-zinc-700 overflow-hidden"
+          >
+            {items.map((persona) => (
+              <motion.li
+                key={persona.id}
+                variants={{
+                  open: { opacity: 1, x: 0 },
+                  collapsed: { opacity: 0, x: -20 },
+                }}
+                transition={{ duration: 0.25 }}
+                className="text-gray-500"
+              >
+                <LinkItem
+                  label={persona.title}
+                  href={`/in/personas/${persona.id}`}
+                  icon={<Target size={16} />}
+                />
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

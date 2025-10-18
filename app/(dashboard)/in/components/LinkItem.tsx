@@ -8,7 +8,7 @@ interface Props {
 
 export const LinkItem: React.FC<Props> = ({ label, href, icon }: Props) => {
   return (
-    <Link href={href} className="flex items-center gap-2">
+    <Link href={href} className="flex items-center gap-2 hover:opacity-70">
       {icon && <span className="icon">{icon}</span>}
       <span>{label}</span>
     </Link>
