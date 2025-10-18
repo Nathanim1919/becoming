@@ -1,4 +1,7 @@
+"use client";
+
 import { Header } from "./Header";
+import { useRef, type Dispatch, type SetStateAction } from "react";
 import { CollapsibleSidebarItem } from "./CollapsibleSidebarItem";
 import {
   LayoutDashboard,
@@ -9,6 +12,8 @@ import {
   Route,
 } from "lucide-react";
 import { LinkItem } from "./LinkItem";
+import { Week } from "@/app/types/personas";
+import { Dynamicbar } from "./Dynamicbar";
 
 const samplePersonalItems = [
   {
@@ -176,7 +181,7 @@ const samplePersonalItems = [
     weeks: [
       {
         weekNumber: 1,
-        title: "Foundation Building",
+        title: "Foundation Building for Code Wizards",
         focus:
           "Anchor in clarity: Start with 30-min journaling to define your ML project idea.",
         behaviors: [
@@ -613,10 +618,49 @@ const samplePersonalItems = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  hoveredWeeks: Week[] | null;
+  setHoveredWeeks: Dispatch<SetStateAction<Week[] | null>>;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ hoveredWeeks, setHoveredWeeks }) => {
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimeoutRef.current = setTimeout(() => {
+      setHoveredWeeks(null);
+    }, 200);
+  };
+
+  const handlePersonaEnter = (weeks: Week[]) => {
+    cancelClose();
+    setHoveredWeeks(weeks);
+  };
+
+  const handleDynamicEnter = () => {
+    cancelClose();
+  };
+
   return (
-    <aside className="h-screen bg-white dark:bg-black overflow-hidden border-r border-gray-200 dark:border-gray-800">
+    <aside
+      className="h-screen z-100 relative bg-white dark:bg-black  border-r border-gray-100 dark:border-gray-900"
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+    >
       <Header />
+      <Dynamicbar
+        weeks={hoveredWeeks}
+        onMouseEnter={handleDynamicEnter}
+        onMouseLeave={scheduleClose}
+      />
       <nav className="p-4">
         <ul className="flex flex-col gap-2">
           <LinkItem href="/new" label="New Vision" icon={<Plus size={20} />} />
@@ -630,6 +674,8 @@ const Sidebar = () => {
             label="Paths"
             items={samplePersonalItems}
             icon={<Route size={20} />}
+            onItemEnter={handlePersonaEnter}
+            onItemLeave={scheduleClose}
           />
           <CollapsibleSidebarItem
             label="Future Visions"

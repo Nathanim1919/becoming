@@ -40,7 +40,7 @@ export interface Week {
   progress: {
     completedTodos: number; // e.g., 2/3
     alignment: number; // Week-specific % (0-100)
-    reflection?: string; // User's input from reflection
+    reflection?: string | null; // User's input from reflection
   };
   updatedAt: Date; // Last adaptation time
 }

@@ -3,19 +3,23 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Target } from "lucide-react";
-import { Persona } from "@/app/types/personas";
+import { Persona, Week } from "@/app/types/personas";
 import { LinkItem } from "./LinkItem";
 
 interface CollapsibleSidebarItemProps {
   label: string;
   items: Persona[];
   icon: React.ReactNode;
+  onItemEnter?: (weeks: Week[]) => void;
+  onItemLeave?: () => void;
 }
 
 export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
   label,
   items,
   icon,
+  onItemEnter,
+  onItemLeave,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -64,15 +68,17 @@ export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
             }}
             className="ml-5 mt-2 pl-2 flex flex-col gap-1 border-l border-zinc-300 dark:border-zinc-700 overflow-hidden"
           >
-            {items.map((persona) => (
+            {items.map((persona, index) => (
               <motion.li
-                key={persona.id}
+                key={index}
                 variants={{
                   open: { opacity: 1, x: 0 },
                   collapsed: { opacity: 0, x: -20 },
                 }}
                 transition={{ duration: 0.25 }}
                 className="text-gray-500"
+                onMouseEnter={() => onItemEnter?.(persona.weeks)}
+                onMouseLeave={() => onItemLeave?.()}
               >
                 <LinkItem
                   label={persona.title}
