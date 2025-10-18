@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Target } from "lucide-react";
+import { ChevronDown, Target, CircleDashed } from "lucide-react";
 import { Persona, Week } from "@/app/types/personas";
 import { LinkItem } from "./LinkItem";
 
@@ -83,7 +83,7 @@ export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
                 <LinkItem
                   label={persona.title}
                   href={`/in/personas/${persona.id}`}
-                  icon={<Target size={16} />}
+                  icon={<CircleDashed size={16} />}
                 />
               </motion.li>
             ))}
