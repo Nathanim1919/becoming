@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="grid grid-cols-[_.2fr_.9fr]">
       <Sidebar hoveredWeeks={hoveredWeeks} setHoveredWeeks={setHoveredWeeks} />
-      <div className="bg-[#f7e7e7]">{children}</div>
+      <div className="bg-[#f7e7e7] dark:bg-[#111111]">{children}</div>
     </div>
   );
 };
