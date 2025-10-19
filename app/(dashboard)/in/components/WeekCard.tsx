@@ -14,7 +14,11 @@ export const WeekCard = ({ week }: Props) => {
           <CornerDownRight className="text-gray-400" />
           Week {week.weekNumber}
         </h3>
-        <p className="text-sm">Upcoming</p>
+        <span
+          className={`text-xs text-black border font-bold px-2 py-[2px] rounded-3xl ${week.status === "completed" ? "bg-green-200 border-green-400" : week.status === "in-progress" ? "bg-yellow-200 border-yellow-400" : "bg-blue-200  border-blue-400"}`}
+        >
+          {week.status}
+        </span>
       </div>
       <div className="ml-4 flex flex-col gap-2 pl-2 border-l border-gray-300 dark:border-gray-700">
         <div className="flex flex-col m-0">

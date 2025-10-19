@@ -42,6 +42,7 @@ export interface Week {
     alignment: number; // Week-specific % (0-100)
     reflection?: string | null; // User's input from reflection
   };
+  status: "upcoming" | "in-progress" | "completed";
   updatedAt: Date; // Last adaptation time
 }
 

@@ -73,6 +73,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -116,6 +117,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "in-progress",
         updatedAt: new Date(),
       },
       {
@@ -159,6 +161,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
     ],
@@ -223,6 +226,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -266,6 +270,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -309,6 +314,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "upcoming",
         updatedAt: new Date(),
       },
     ],
@@ -373,6 +379,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -416,6 +423,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -459,6 +467,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "in-progress",
         updatedAt: new Date(),
       },
     ],
@@ -523,6 +532,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "in-progress",
         updatedAt: new Date(),
       },
       {
@@ -566,6 +576,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "upcoming",
         updatedAt: new Date(),
       },
       {
@@ -609,6 +620,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
       {
@@ -655,6 +667,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "upcoming",
         updatedAt: new Date(),
       },
       {
@@ -698,6 +711,7 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "in-progress",
         updatedAt: new Date(),
       },
       {
@@ -741,10 +755,256 @@ const samplePersonalItems = [
           alignment: 0,
           reflection: null,
         },
+        status: "completed",
         updatedAt: new Date(),
       },
     ],
     connections: [], // Empty for standalone sample
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "persona-3",
+    title: "Mindful Innovator",
+    vision:
+      "In 6 months, I want to launch a mindful productivity app that helps makers slow down to speed up.",
+    timeframe: {
+      duration: 24,
+      startDate: new Date("2025-04-01"),
+      estimatedEndDate: new Date("2025-09-16"),
+    },
+    status: "active" as const,
+    alignmentScore: 68,
+    weeks: [
+      {
+        weekNumber: 1,
+        title: "Vision Mapping",
+        focus: "Sketch the north-star experience and define user outcomes.",
+        behaviors: [
+          "Daily 20-minute visualization of ideal user journey",
+          "Capture insights from 2 mindfulness sessions",
+        ],
+        todos: [
+          {
+            day: "Monday",
+            task: "Draft a one-page app manifesto outlining purpose and promise.",
+            identityLink:
+              "You are the mindful founder who designs with intention.",
+            completed: false,
+          },
+          {
+            day: "Thursday",
+            task: "Interview one maker about their current slowdown rituals.",
+            identityLink: "Listening cements your empathy-first leadership.",
+            completed: false,
+          },
+        ],
+        emotionalTone: "Curious, grounded, and expansive",
+        affirmations: ["Clarity flows when I pause to listen."],
+        challenges: {
+          potentialHurdles:
+            "Over-planning instead of shipping tangible artifacts.",
+          mitigations: "Timebox strategy work and end with a shipping step.",
+        },
+        visualCues: {
+          icon: "🧭",
+          colorTheme: "lavender_to_midnight",
+        },
+        reflectivePrompt:
+          "Which images of the future product felt most alive for you this week?",
+        shareableSnippet:
+          "Week 1: Charting the mindful maker journey. 🧭 #SlowBuilds",
+        progress: {
+          completedTodos: 0,
+          alignment: 10,
+          reflection: null,
+        },
+        status: "completed",
+        updatedAt: new Date(),
+      },
+      {
+        weekNumber: 2,
+        title: "Prototype Sprint",
+        focus: "Translate vision sketches into a clickable prototype.",
+        behaviors: [
+          "Two focused design sprints using low-fidelity wireframes",
+          "Daily stand-down ritual to note wins and frictions",
+        ],
+        todos: [
+          {
+            day: "Tue/Thu",
+            task: "Build primary flow in Figma covering onboarding to first check-in.",
+            identityLink:
+              "You make calm experiences by shaping them with care.",
+            completed: false,
+          },
+          {
+            day: "Friday",
+            task: "Run two silent demo sessions and collect impressions.",
+            identityLink: "Quiet observation sharpens your creator instincts.",
+            completed: false,
+          },
+        ],
+        emotionalTone: "Playful experimentation with grounded focus",
+        affirmations: ["Momentum is mindful when anchored in intention."],
+        challenges: {
+          potentialHurdles: "Perfectionism delaying feedback loops.",
+          mitigations: "Ship rough drafts and annotate known gaps openly.",
+        },
+        visualCues: {
+          icon: "🛠️",
+          colorTheme: "sunrise_orange_to_night_sky",
+        },
+        reflectivePrompt:
+          "Which prototype moments captured the calm you’re building toward?",
+        shareableSnippet:
+          "Week 2: Spinning up mindful flows one screen at a time. 🎨 #MakerStillness",
+        progress: {
+          completedTodos: 0,
+          alignment: 28,
+          reflection: null,
+        },
+        status: "in-progress",
+        updatedAt: new Date(),
+      },
+      {
+        weekNumber: 3,
+        title: "User Listening Lab",
+        focus: "Validate prototype resonance with mindful makers.",
+        behaviors: [
+          "Host user conversations focused on feelings over features",
+          "Journal nightly about surprises and energy shifts",
+        ],
+        todos: [
+          {
+            day: "Wednesday",
+            task: "Facilitate a 30-minute listening session with a seasoned meditator.",
+            identityLink:
+              "Your curiosity is the bridge between vision and reality.",
+            completed: false,
+          },
+          {
+            day: "Saturday",
+            task: "Synthesize learnings into a resonance matrix.",
+            identityLink: "Sense-making turns data into guided momentum.",
+            completed: false,
+          },
+        ],
+        emotionalTone: "Empathetic, observant, and adaptive",
+        affirmations: ["Listening deeply is building wisely."],
+        challenges: {
+          potentialHurdles:
+            "Hearing conflicting feedback that clouds direction.",
+          mitigations:
+            "Cluster insights by energy; prioritize what sparks alignment.",
+        },
+        visualCues: {
+          icon: "🎧",
+          colorTheme: "teal_to_soft_gold",
+        },
+        reflectivePrompt:
+          "What stories from users shifted your sense of what matters most?",
+        shareableSnippet:
+          "Week 3: Letting mindful makers co-create the journey. 🎧 #StillnessLab",
+        progress: {
+          completedTodos: 0,
+          alignment: 36,
+          reflection: null,
+        },
+        status: "upcoming",
+        updatedAt: new Date(),
+      },
+      {
+        weekNumber: 4,
+        title: "Calibration Cycle",
+        focus: "Integrate learnings and reprioritize feature roadmap.",
+        behaviors: [
+          "Daily review of user quotes to anchor decisions",
+          "Commit to a single high-impact shift per day",
+        ],
+        todos: [
+          {
+            day: "Monday",
+            task: "Update backlog with new themes and tag by emotional resonance.",
+            identityLink: "Discernment keeps your product soul-aligned.",
+            completed: false,
+          },
+          {
+            day: "Thursday",
+            task: "Prototype refined flow for the most resonant ritual.",
+            identityLink: "You turn insights into embodied experiences.",
+            completed: false,
+          },
+        ],
+        emotionalTone: "Reflective, decisive, and steady",
+        affirmations: ["Alignment is a series of courageous edits."],
+        challenges: {
+          potentialHurdles: "Scope creep from wanting to honor every insight.",
+          mitigations:
+            "Return to the manifesto and focus on first-principle needs.",
+        },
+        visualCues: {
+          icon: "🧘",
+          colorTheme: "sage_to_charcoal",
+        },
+        reflectivePrompt:
+          "How did the recalibration honor both user truth and your vision?",
+        shareableSnippet:
+          "Week 4: Calibrating the calm, one mindful pivot at a time. 🧘 #AlignedBuild",
+        progress: {
+          completedTodos: 0,
+          alignment: 45,
+          reflection: null,
+        },
+        status: "upcoming",
+        updatedAt: new Date(),
+      },
+      {
+        weekNumber: 5,
+        title: "Ritual Release",
+        focus: "Ship the first guided ritual and capture impact signals.",
+        behaviors: [
+          "Pair each build session with a grounding breath practice",
+          "Close days by noting gratitude for micro-progress",
+        ],
+        todos: [
+          {
+            day: "Tuesday",
+            task: "Deploy MVP ritual flow to a private beta circle.",
+            identityLink: "You release with both courage and care.",
+            completed: false,
+          },
+          {
+            day: "Friday",
+            task: "Collect pulse check notes and schedule integration circle.",
+            identityLink: "Holding space turns testers into champions.",
+            completed: false,
+          },
+        ],
+        emotionalTone: "Courageous celebration and gentle pace",
+        affirmations: ["I can launch boldly without losing my calm center."],
+        challenges: {
+          potentialHurdles: "Rushing metrics over meaning post-release.",
+          mitigations: "Define success as qualitative resonance first.",
+        },
+        visualCues: {
+          icon: "🎁",
+          colorTheme: "soft_gold_to_midnight_blue",
+        },
+        reflectivePrompt:
+          "What did releasing teach you about balancing urgency and ease?",
+        shareableSnippet:
+          "Week 5: Offering the first mindful ritual to the world. 🎁 #CalmLaunch",
+        progress: {
+          completedTodos: 0,
+          alignment: 52,
+          reflection: null,
+        },
+        status: "upcoming",
+        updatedAt: new Date(),
+      },
+    ],
+    connections: [],
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -795,9 +1055,13 @@ const Sidebar: React.FC<SidebarProps> = ({ hoveredWeeks, setHoveredWeeks }) => {
       />
       <nav className="p-4 bg-white dark:bg-black">
         <ul className="flex flex-col gap-4">
-          <LinkItem href="/new" label="New Vision" icon={<Plus size={20} />} />
           <LinkItem
-            href="/dashboard"
+            href="/in/new"
+            label="New Vision"
+            icon={<Plus size={20} />}
+          />
+          <LinkItem
+            href="/in"
             label="Dashboard"
             icon={<LayoutDashboard size={20} />}
           />

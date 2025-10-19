@@ -2,7 +2,13 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Target, CircleDashed } from "lucide-react";
+import {
+  ChevronDown,
+  CircleCheck,
+  Pause,
+  Archive,
+  CircleDashed,
+} from "lucide-react";
 import { Persona, Week } from "@/app/types/personas";
 import { LinkItem } from "./LinkItem";
 
@@ -83,7 +89,17 @@ export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
                 <LinkItem
                   label={persona.title}
                   href={`/in/personas/${persona.id}`}
-                  icon={<CircleDashed size={16} />}
+                  icon={
+                    persona.status === "completed" ? (
+                      <CircleCheck size={16} className="text-green-500" />
+                    ) : persona.status === "active" ? (
+                      <CircleDashed size={16} className="text-yellow-500" />
+                    ) : persona.status === "paused" ? (
+                      <Pause size={16} className="text-gray-500" />
+                    ) : (
+                      <Archive size={16} />
+                    )
+                  }
                 />
               </motion.li>
             ))}

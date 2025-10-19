@@ -13,7 +13,7 @@ export const Hero = () => {
       <div className="w-full max-w-3xl space-y-4">
         <header className="text-center space-y-3">
           <h1 className="text-5xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight">
-            {titles[Math.floor(Math.random() * titles.length)]}
+            Becoming the person you set out to be.
           </h1>
           <p className="text-md text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Articulate your long-term goal and the identity you want to achieve.
