@@ -1,5 +1,5 @@
 import React from "react";
-import { Send } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 
 const NewVision = () => {
   const titles = [
@@ -37,7 +37,8 @@ const NewVision = () => {
           <label htmlFor="visionTextarea" className="sr-only">
             Your Future Vision
           </label>
-          <div className="grid place-items-end p-1">
+          <div className="flex justify-between items-center px-3 py-1">
+            <Sparkles size={20} />
             <div className="bg-gray-100 dark:bg-[#2c2c2c] p-1 rounded-full flex justify-between items-center gap-1">
               <button className="bg-white flex-1 dark:bg-[#220b0b] px-4 cursor-pointer border dark:border-gray-800 border-gray-200 py-1 rounded-3xl text-sm">
                 Project

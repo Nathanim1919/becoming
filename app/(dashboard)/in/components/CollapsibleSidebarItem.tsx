@@ -18,6 +18,14 @@ interface CollapsibleSidebarItemProps {
   icon: React.ReactNode;
   onItemEnter?: (weeks: Week[]) => void;
   onItemLeave?: () => void;
+  recursiveData?: {
+    label: string;
+    items: Persona[];
+    icon: React.ReactNode;
+    onItemEnter?: (weeks: Week[]) => void;
+    onItemLeave?: () => void;
+    recursiveData?: {};
+  } | null;
 }
 
 export const CollapsibleSidebarItem: React.FC<CollapsibleSidebarItemProps> = ({
