@@ -9,6 +9,7 @@ import {
   BookMarked,
   Archive,
   Asterisk,
+  FolderDot,
   Route,
 } from "lucide-react";
 import { LinkItem } from "./LinkItem";
@@ -1053,7 +1054,7 @@ const Sidebar: React.FC<SidebarProps> = ({ hoveredWeeks, setHoveredWeeks }) => {
         onMouseEnter={handleDynamicEnter}
         onMouseLeave={scheduleClose}
       />
-      <nav className="p-4 bg-white dark:bg-black">
+      <nav className="p-4 bg-white dark:bg-black h-[calc(100%-50px)] overflow-y-auto">
         <ul className="flex flex-col gap-4">
           <LinkItem
             href="/in/new"
@@ -1082,6 +1083,11 @@ const Sidebar: React.FC<SidebarProps> = ({ hoveredWeeks, setHoveredWeeks }) => {
             label="Archive"
             items={samplePersonalItems}
             icon={<Archive size={20} />}
+          />
+          <CollapsibleSidebarItem
+            label="Projects"
+            items={samplePersonalItems}
+            icon={<FolderDot size={20} />}
           />
           <LinkItem
             href="/reflections"
